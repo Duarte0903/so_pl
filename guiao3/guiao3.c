@@ -9,6 +9,7 @@
 // Exercício 1 - comando ls -l
 int exec1() {
     execlp("ls", "ls", "-l", NULL);
+    perror("ls");
     return 0;
 }
 
@@ -19,6 +20,8 @@ int exec2() {
 
     if (pid == 0) {
         execlp("ls", "ls", "-l", NULL);
+        perror("ls");
+        _exit(1);
     }
 
     if (pid < 0) {
